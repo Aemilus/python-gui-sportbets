@@ -44,7 +44,6 @@ class GenereazaBilete:
                 self.app.main_win.label_progres_generare.config(text=str(bilete_valide))
                 for meci in range(self.app.nr_meciuri):
                     self.bilete_excel[meci].append(bilet[meci].semn)
-                    print(self.bilete_excel)
         ws.append(self.excel_nr)
         for row in self.bilete_excel:
             ws.append(row)
