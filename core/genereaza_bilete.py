@@ -54,7 +54,9 @@ class GenereazaBilete:
                 self.app.main_win.procesare_frame.label_progres_generare.config(text=str(self.NR_BILETE_VALIDE))
                 for row in range(self.app.core.nr_meciuri):
                     self.tabel_bilete[row].append(bilet.combinatie[row].semn)
+                    self.tabel_bilete[row].append("")
                 self.tabel_bilete[self.app.core.nr_meciuri].append(f"Bilet {bilet.nr_bilet}")
+                self.tabel_bilete[self.app.core.nr_meciuri].append("")
         for row in self.tabel_bilete:
             ws.append(row)
         # styling
