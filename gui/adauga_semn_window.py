@@ -51,8 +51,8 @@ class AdaugaSemnWindow:
         try:
             semn = SetariSemn(self.app)
             if semn.is_valid():
-                self.app.semne.append(semn)
-                self.app.main_win.refresh_listbox_semne()
+                self.app.core.semne.append(semn)
+                self.app.main_win.user_input_frame.refresh_listbox_semne()
                 self._on_closing()
             else:
                 raise ValueError(f"Setari semn: {semn}")
