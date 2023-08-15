@@ -44,7 +44,7 @@ class GenereazaBilete:
                 bilete_valide += 1
                 self.cap_tabel.append(f"Bilet {bilete_valide}")
                 self.cap_tabel.append("")
-                self.app.main_win.label_progres_generare.config(text=str(bilete_valide))
+                self.app.main_win.procesare_frame.label_progres_generare.config(text=str(bilete_valide))
                 for meci in range(self.app.core.nr_meciuri):
                     self.tabel_bilete[meci].append(bilet[meci].semn)
         ws.append(self.cap_tabel)
@@ -70,9 +70,9 @@ class GenereazaBilete:
         # finished
         path_excel = str(Path(os.getcwd()) / "bilete.xlsx")
         wb.save(path_excel)
-        self.app.excel = path_excel
+        self.app.core.excel = path_excel
         time.sleep(2)
-        self.app.main_win.label_progres_generare.config(text=f"Am generat {bilete_valide} bilete")
+        self.app.main_win.procesare_frame.label_progres_generare.config(text=f"Am generat {bilete_valide} bilete")
 
     def genereaza_bilete(self):
         if not self.thread:
