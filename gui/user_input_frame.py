@@ -11,8 +11,8 @@ class UserInputFrame:
         self.entry_nr_meciuri = None
         self.label_semne = None
         self.listbox_semne = None
-        self.win_adauga_semn = None
         self.button_adauga_semn = None
+        self.win_adauga_semn = None
 
     def configure(self):
         self.frame = tk.Frame(self.app.main_win.root)
@@ -22,6 +22,7 @@ class UserInputFrame:
         self._init_label_semne()
         self._init_listbox_semne()
         self._init_button_adauga_semn()
+        print("Create user input frame.")
 
     def _init_label_nr_meciuri(self):
         self.label_nr_meciuri = tk.Label(self.frame, text="Numar meciuri")
@@ -39,20 +40,23 @@ class UserInputFrame:
         self.listbox_semne = tk.Listbox(self.frame, width=50, justify=tk.CENTER)
         self.listbox_semne.grid(row=3, column=0, sticky="NSEW")
 
-    def _set_nr_meciuri(self):
+    def get_nr_meciuri(self):
         try:
             nr_meciuri = int(self.entry_nr_meciuri.get().strip())
             if nr_meciuri > 1:
-                self.app.core.nr_meciuri = nr_meciuri
-                return self.app.core.nr_meciuri
+                return nr_meciuri
             raise ValueError(f"Nr meciuri: {nr_meciuri}")
-        except ValueError:
+        except ValueError as ve:
             return None
 
     def _adauga_semn(self):
-        if self._set_nr_meciuri():
+        print("Clicked adauga semn.")
+        nr_meciuri = self.get_nr_meciuri()
+        if nr_meciuri:
+            self.app.core.nr_meciuri = nr_meciuri
             self.app.main_win.root.wm_attributes('-disabled', 'True')
             self.win_adauga_semn = AdaugaSemnWindow(self.app)
+            self.win_adauga_semn.configure()
 
     def _init_button_adauga_semn(self):
         self.button_adauga_semn = tk.Button(self.frame, text="Adauga semn", command=self._adauga_semn)

@@ -1,13 +1,18 @@
 class SetariSemn:
+    BASE_COLOR = int("fafcb1", base=16)
+
     def __init__(self, app):
         self.app = app
         self.semn = None
         self.minim = None
         self.maxim = None
         self.color = None
+
+    def configure(self):
         self._init_semn()
         self._init_minim()
         self._init_maxim()
+        print(f"Create setari semn: {self}")
 
     def _init_semn(self):
         semn = self.app.main_win.user_input_frame.win_adauga_semn.entry_semn.get().strip()
@@ -29,6 +34,10 @@ class SetariSemn:
             self.maxim = maxim
         else:
             raise ValueError(f"Maxim: {maxim}")
+
+    def _init_color(self):
+        color = hex(self.BASE_COLOR + (len(self.app.core.semne) + 1) * 100000)[2:8]
+        self.color = color
 
     def is_valid(self):
         if self.minim > self.maxim:

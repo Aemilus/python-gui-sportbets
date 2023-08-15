@@ -20,6 +20,7 @@ class ProcesareFrame:
         self._init_button_genereaza_bilete()
         self._init_button_afiseaza_bilete()
         self._init_button_reset()
+        print("Create procesare frame.")
 
     def _init_label_progres_generare(self):
         self.label_progres_generare = tk.Label(self.frame, text="")

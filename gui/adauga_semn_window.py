@@ -6,6 +6,17 @@ from core.setari_semn import SetariSemn
 class AdaugaSemnWindow:
     def __init__(self, app):
         self.app = app
+        self.win = None
+        self.user_input_frame = None
+        self.label_semn = None
+        self.entry_semn = None
+        self.label_minim = None
+        self.entry_minim = None
+        self.label_maxim = None
+        self.entry_maxim = None
+        self.button_save = None
+
+    def configure(self):
         self._init_win()
         self._init_user_input_frame()
         self._init_button_save()
@@ -50,6 +61,7 @@ class AdaugaSemnWindow:
     def _salveaza_semn(self):
         try:
             semn = SetariSemn(self.app)
+            semn.configure()
             if semn.is_valid():
                 self.app.core.semne.append(semn)
                 self.app.main_win.user_input_frame.refresh_listbox_semne()
