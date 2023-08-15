@@ -63,6 +63,7 @@ class AdaugaSemnWindow:
             semn = SetariSemn(self.app)
             semn.configure()
             if semn.is_valid():
+                semn.set_color()
                 self.app.core.semne.append(semn)
                 self.app.main_win.user_input_frame.refresh_listbox_semne()
                 self._on_closing()

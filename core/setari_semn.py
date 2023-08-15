@@ -1,3 +1,6 @@
+from openpyxl.styles import PatternFill
+
+
 class SetariSemn:
     BASE_COLOR = int("fafcb1", base=16)
 
@@ -35,9 +38,9 @@ class SetariSemn:
         else:
             raise ValueError(f"Maxim: {maxim}")
 
-    def _init_color(self):
-        color = hex(self.BASE_COLOR + (len(self.app.core.semne) + 1) * 100000)[2:8]
-        self.color = color
+    def set_color(self):
+        color = hex(self.BASE_COLOR + len(self.app.core.semne) * 100000)[2:8]
+        self.color = PatternFill(start_color=color, end_color=color, fill_type="solid")
 
     def is_valid(self):
         if self.minim > self.maxim:
