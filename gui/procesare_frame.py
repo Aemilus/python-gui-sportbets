@@ -20,7 +20,6 @@ class ProcesareFrame:
         self._init_button_genereaza_bilete()
         self._init_button_afiseaza_bilete()
         self._init_button_reset()
-        print("Create procesare frame.")
 
     def _init_label_progres_generare(self):
         self.label_progres_generare = tk.Label(self.frame, text="")
@@ -51,14 +50,13 @@ class ProcesareFrame:
         )
         self.button_afiseaza_bilete.grid(row=2, column=0)
 
-    def _reset(self):
-        self.app.core.reset()
-        self.app.main_win.user_input_frame.reset()
+    def reset(self):
+        self.label_progres_generare.config(text="")
 
     def _init_button_reset(self):
         self.button_reset = tk.Button(
             self.frame,
             text="Reset",
-            command=self._reset
+            command=self.app.reset
         )
         self.button_reset.grid(row=3, column=0, pady=20)

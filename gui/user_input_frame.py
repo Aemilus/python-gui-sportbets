@@ -22,7 +22,6 @@ class UserInputFrame:
         self._init_label_semne()
         self._init_listbox_semne()
         self._init_button_adauga_semn()
-        print("Create user input frame.")
 
     def _init_label_nr_meciuri(self):
         self.label_nr_meciuri = tk.Label(self.frame, text="Numar meciuri")
@@ -50,7 +49,6 @@ class UserInputFrame:
             return None
 
     def _adauga_semn(self):
-        print("Clicked adauga semn.")
         nr_meciuri = self.get_nr_meciuri()
         if nr_meciuri:
             self.app.core.nr_meciuri = nr_meciuri

@@ -63,7 +63,6 @@ class GenereazaBilete:
         culori_semne = dict()
         for semn in self.app.core.semne:
             culori_semne[semn.semn] = semn.color
-        print("Culori semne:", culori_semne)
         if self.tabel_bilete:
             for row in ws.iter_rows(
                     min_row=self.app.core.nr_meciuri+1,

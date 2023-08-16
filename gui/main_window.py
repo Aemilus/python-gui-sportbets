@@ -15,7 +15,6 @@ class MainWindow:
         self._init_root()
         self._init_user_input_frame()
         self._init_procesare_frame()
-        print("Create main window.")
 
     def _init_root(self):
         self.root = tk.Tk()
@@ -31,3 +30,7 @@ class MainWindow:
     def _init_procesare_frame(self):
         self.procesare_frame = ProcesareFrame(self.app)
         self.procesare_frame.configure()
+
+    def reset(self):
+        self.user_input_frame.reset()
+        self.procesare_frame.reset()

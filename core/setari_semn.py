@@ -15,7 +15,6 @@ class SetariSemn:
         self._init_semn()
         self._init_minim()
         self._init_maxim()
-        print(f"Create setari semn: {self}")
 
     def _init_semn(self):
         semn = self.app.main_win.user_input_frame.win_adauga_semn.entry_semn.get().strip()
