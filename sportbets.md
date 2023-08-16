@@ -1,1 +1,1 @@
-pyinstaller.exe -w --onefile .\sportbets.py
+pyinstaller.exe -w --onefile --icon=.\sportbets.ico .\sportbets.py

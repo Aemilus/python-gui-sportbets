@@ -1,10 +1,13 @@
+import os
+from pathlib import Path
+
 from core.core import CoreSportBets
 from gui.main_window import MainWindow
 
 
-# noinspection PyAttributeOutsideInit
 class AppSportBets:
     def __init__(self):
+        self.path = Path(os.getcwd())
         self.core = None
         self.main_win = None
 

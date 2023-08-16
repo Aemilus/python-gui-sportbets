@@ -41,12 +41,19 @@ class SetariSemn:
         color = hex(self.BASE_COLOR + len(self.app.core.semne) * 100000)[2:8]
         self.color = PatternFill(start_color=color, end_color=color, fill_type="solid")
 
+    def _is_unique(self):
+        for semn_obj in self.app.core.semne:
+            if semn_obj.semn == self.semn:
+                return False
+        else:
+            return True
+
     def is_valid(self):
         if self.minim > self.maxim:
             return False
         if self.maxim > self.app.core.nr_meciuri:
             return False
-        return True
+        return self._is_unique()
 
     def __str__(self):
         return str({"semn": self.semn, "minim": self.minim, "maxim": self.maxim})
